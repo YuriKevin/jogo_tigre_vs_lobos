@@ -4,7 +4,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgb(0, 94, 235) 50%, rgb(235, 94, 0) 50%);
+    background: linear-gradient(300deg,rgb(0, 94, 235),rgb(235, 94, 0));
+    background-size: 180% 180%;
+    animation: gradient-animation 18s ease infinite;
+}
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 .block{
     width: 300px;
