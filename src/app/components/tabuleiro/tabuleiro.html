@@ -1,0 +1,179 @@
+<div class="container">
+    <div class="tabuleiro">
+        <div class="linha">
+            <div class="peca" *ngFor="let vertice of listaDeVertices.slice(0, 5)">
+                <div class="circle" [ngStyle]="{
+                            'background-color': vertice.ocupado ? 'transparent' : 'black',
+                            'background-image': vertice.ocupado
+                                ? (vertice.cachorro
+                                    ? 'url(images/lobo.png)'
+                                    : 'url(images/tigre.png)')
+                                : 'none',
+                            'background-size': '80%',
+                            'background-position': 'center',
+                            'background-repeat': 'no-repeat'
+                            }" (click)="selecionarVertice(vertice)"
+                            [ngClass]="{
+                                selecionado: verticeAtual === vertice || verticeFuturo === vertice
+                            }">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <div class="linha">
+            <div class="peca" *ngFor="let vertice of listaDeVertices.slice(5, 10)">
+                 <div class="circle" [ngStyle]="{
+                            'background-color': vertice.ocupado ? 'transparent' : 'black',
+                            'background-image': vertice.ocupado
+                                ? (vertice.cachorro
+                                    ? 'url(images/lobo.png)'
+                                    : 'url(images/tigre.png)')
+                                : 'none',
+                            'background-size': '80%',
+                            'background-position': 'center',
+                            'background-repeat': 'no-repeat'
+                            }" (click)="selecionarVertice(vertice)"
+                            [ngClass]="{
+                                selecionado: verticeAtual === vertice || verticeFuturo === vertice
+                            }">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+         <div class="linha">
+            <div class="peca" *ngFor="let vertice of listaDeVertices.slice(10, 15)">
+                 <div class="circle" [ngStyle]="{
+                            'background-color': vertice.ocupado ? 'transparent' : 'black',
+                            'background-image': vertice.ocupado
+                                ? (vertice.cachorro
+                                    ? 'url(images/lobo.png)'
+                                    : 'url(images/tigre.png)')
+                                : 'none',
+                            'background-size': '80%',
+                            'background-position': 'center',
+                            'background-repeat': 'no-repeat'
+                            }" (click)="selecionarVertice(vertice)"
+                            [ngClass]="{
+                                selecionado: verticeAtual === vertice || verticeFuturo === vertice
+                            }">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <div class="linha">
+            <div class="peca" *ngFor="let vertice of listaDeVertices.slice(15, 20)">
+                <div class="circle" [ngStyle]="{
+                            'background-color': vertice.ocupado ? 'transparent' : 'black',
+                            'background-image': vertice.ocupado
+                                ? (vertice.cachorro
+                                    ? 'url(images/lobo.png)'
+                                    : 'url(images/tigre.png)')
+                                : 'none',
+                            'background-size': '80%',
+                            'background-position': 'center',
+                            'background-repeat': 'no-repeat'
+                            }" (click)="selecionarVertice(vertice)"
+                            [ngClass]="{
+                                selecionado: verticeAtual === vertice || verticeFuturo === vertice
+                            }">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <div class="linha">
+            <div class="peca" *ngFor="let vertice of listaDeVertices.slice(20, 25)">
+                 <div class="circle" [ngStyle]="{
+                            'background-color': vertice.ocupado ? 'transparent' : 'black',
+                            'background-image': vertice.ocupado
+                                ? (vertice.cachorro
+                                    ? 'url(images/lobo.png)'
+                                    : 'url(images/tigre.png)')
+                                : 'none',
+                            'background-size': '80%',
+                            'background-position': 'center',
+                            'background-repeat': 'no-repeat'
+                            }" (click)="selecionarVertice(vertice)"
+                            [ngClass]="{
+                                selecionado: verticeAtual === vertice || verticeFuturo === vertice
+                            }">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <div class="container-triangulo">
+            <div class="divisao-triangulo">
+                <div class="divisao">
+                    <div class="peca" *ngFor="let vertice of listaDeVertices.slice(25, 28)">
+                         <div class="circle" [ngStyle]="{
+                            'background-color': vertice.ocupado ? 'transparent' : 'black',
+                            'background-image': vertice.ocupado
+                                ? (vertice.cachorro
+                                    ? 'url(images/lobo.png)'
+                                    : 'url(images/tigre.png)')
+                                : 'none',
+                            'background-size': '80%',
+                            'background-position': 'center',
+                            'background-repeat': 'no-repeat'
+                            }" (click)="selecionarVertice(vertice)"
+                            [ngClass]="{
+                                selecionado: verticeAtual === vertice || verticeFuturo === vertice
+                            }">
+                    <p></p>
+                </div>
+                    </div>
+                </div>
+            </div>
+             <div class="divisao-triangulo">
+                <div class="divisao ultima-fila">
+                    <div class="peca" *ngFor="let vertice of listaDeVertices.slice(28, 31)">
+                        <div class="circle" [ngStyle]="{
+                                'background-color': vertice.ocupado ? 'transparent' : 'black',
+                                'background-image': vertice.ocupado
+                                    ? (vertice.cachorro
+                                        ? 'url(images/lobo.png)'
+                                        : 'url(images/tigre.png)')
+                                    : 'none',
+                                'background-size': '80%',
+                                'background-position': 'center',
+                                'background-repeat': 'no-repeat'
+                                }" (click)="selecionarVertice(vertice)"
+                                [ngClass]="{
+                                    selecionado: verticeAtual === vertice || verticeFuturo === vertice
+                                }">
+                             <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="dialogo cronometro">
+    <div class="top"><p>Cronômetro</p></div>
+    <div><p>{{ this.segundos }}</p></div>
+</div>
+
+<div class="dialogo turno">
+    <div class="top"><p>Turno</p></div>
+    <div *ngIf="vezDoLobo"><p>{{ this.segundosTurno }}</p></div>
+    <div *ngIf="!vezDoLobo"><p>{{ this.segundosTurno }}</p></div>
+</div>
+
+<div class="dialogo vez">
+    <div class="top"><p>vez</p></div>
+    <div *ngIf="vezDoLobo"><p>Lobo</p></div>
+    <div *ngIf="!vezDoLobo"><p>Tigre</p></div>
+</div>
+
+<div class="transparentBlack" *ngIf="tigreVenceu || loboVenceu">
+    <div class="box">
+        <div class="mensagem">
+                <p *ngIf="tigreVenceu">Tigre venceu.</p>
+                <p *ngIf="loboVenceu">Lobo venceu.</p>
+        </div>
+        <div class="botao">
+            <button [routerLink]="['/']">Voltar</button>
+        </div>
+    </div>
+</div>
