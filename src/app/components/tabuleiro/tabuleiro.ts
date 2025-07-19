@@ -61,7 +61,7 @@ export class Tabuleiro {
       g3: ['f3', 'g2'],
     };
 
-    mapaMovimentoAtaqueOnca: { [key: string]: string[] } = {
+    mapaMovimentoAtaquetigre: { [key: string]: string[] } = {
       a1: ['a3', 'c1', 'c3'],
       a2: ['a4', 'c2', 'c4'],
       a3: ['a1', 'a5', 'c1', 'c3', 'c5'],
@@ -324,7 +324,7 @@ export class Tabuleiro {
         this.verticeAtual = null;
         this.verticeFuturo = null;
         //verifica se após a jogada algum dos jogadores venceu
-        this.verificarVitoriaOnca();
+        this.verificarVitoriatigre();
         this.verificarVitorialobo();
       }
     }
@@ -360,9 +360,9 @@ export class Tabuleiro {
       //caso não há a possibilidade de movimentar no primeiro mapa, verifica se a jogada é da onça e se há possibilidade de movimento no mapa de ataque 
       else{
         if(!this.vezDoLobo){
-          const movimentosPermitidos = this.mapaMovimentoAtaqueOnca[this.verticeAtual!.identificador];
+          const movimentosPermitidos = this.mapaMovimentoAtaquetigre[this.verticeAtual!.identificador];
           if(movimentosPermitidos.includes(this.verticeFuturo!.identificador)){
-            //concatenação dos valores das chaves dos vértices atual e futuro
+            //ctigretenação dos valores das chaves dos vértices atual e futuro
             const chaveDoAtaque = this.verticeAtual!.identificador + this.verticeFuturo!.identificador;
             //busca no mapa de mortes possíveis a posição no tabuleiro da peça atacada
             const verticeAtacado = this.buscarChave(chaveDoAtaque);
@@ -398,7 +398,7 @@ export class Tabuleiro {
       }
     }
 
-    verificarVitoriaOnca(){
+    verificarVitoriatigre(){
       let ocupados = 0;
       for (const vertice of this.listaDeVertices) {
         if (vertice.ocupado) {
@@ -412,12 +412,12 @@ export class Tabuleiro {
 
     verificarVitorialobo(){
         //encontra onde a onça está posicionada no tabuleiro
-        const indexVerticeOnca = this.listaDeVertices.findIndex(
+        const indexVerticetigre = this.listaDeVertices.findIndex(
                   vertice => vertice.lobo === false
         );
-        this.listaDeVertices[indexVerticeOnca].identificador;
+        this.listaDeVertices[indexVerticetigre].identificador;
         //guarda quais os movimentos que a onça pode realizar
-        let movimentosPermitidos: string[] = this.mapaMovimentoPadrao[this.listaDeVertices[indexVerticeOnca].identificador];
+        let movimentosPermitidos: string[] = this.mapaMovimentoPadrao[this.listaDeVertices[indexVerticetigre].identificador];
         
         let ePossivelMovimentar = false;
 
