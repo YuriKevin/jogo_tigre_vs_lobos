@@ -252,12 +252,12 @@ export class Tabuleiro {
       //gera o mapa de vértices com as posições iniciais das peças
       let index = 0
       for (const nomeChave in this.mapaMovimentoPadrao) {
-        //caso seja cachorro
+        //caso seja lobo
         if((index>=0 && index<=11) || index==13 || index==14){
           this.listaDeVertices.push({
           identificador: nomeChave,
           ocupado: true,
-          cachorro:true
+          lobo:true
         });
         }
         //gera a onça
@@ -265,7 +265,7 @@ export class Tabuleiro {
           this.listaDeVertices.push({
           identificador: nomeChave,
           ocupado: true,
-          cachorro:false
+          lobo:false
         });
         }
         //gera os demais vértices vazios
@@ -273,7 +273,7 @@ export class Tabuleiro {
           this.listaDeVertices.push({
           identificador: nomeChave,
           ocupado: false,
-          cachorro:true
+          lobo:true
         });
         }
         index++;
@@ -288,12 +288,12 @@ export class Tabuleiro {
 
     selecionarVertice(vertice:Vertice){
       console.log(vertice);
-      //impede selecionar o vértice caso o jogador que controla os cachorros tente mover a onça
-      if(this.vezDoLobo && vertice.cachorro == false){
+      //impede selecionar o vértice caso o jogador que controla os lobos tente mover a onça
+      if(this.vezDoLobo && vertice.lobo == false){
         return;
       }
-      //impede selecionar o vértice caso o jogador que controla a onça tente mover um cachorro
-      if(!this.vezDoLobo && vertice.cachorro ==true && vertice.ocupado == true){
+      //impede selecionar o vértice caso o jogador que controla a onça tente mover um lobo
+      if(!this.vezDoLobo && vertice.lobo ==true && vertice.ocupado == true){
         return;
       }
       //verifica se é o primeiro vertice a ser selecionado (verticeAtual)
@@ -325,7 +325,7 @@ export class Tabuleiro {
         this.verticeFuturo = null;
         //verifica se após a jogada algum dos jogadores venceu
         this.verificarVitoriaOnca();
-        this.verificarVitoriaCachorro();
+        this.verificarVitorialobo();
       }
     }
 
@@ -347,12 +347,12 @@ export class Tabuleiro {
         );
         //troca os valores para realizar a movimentação no tabuleiro
           this.listaDeVertices[indexVerticeAtual].ocupado = false;
-          this.listaDeVertices[indexVerticeAtual].cachorro = true;
+          this.listaDeVertices[indexVerticeAtual].lobo = true;
           if(this.vezDoLobo){
-            this.listaDeVertices[indexVerticeFuturo].cachorro = true;
+            this.listaDeVertices[indexVerticeFuturo].lobo = true;
           }
           else{
-            this.listaDeVertices[indexVerticeFuturo].cachorro = false;
+            this.listaDeVertices[indexVerticeFuturo].lobo = false;
           }
             this.listaDeVertices[indexVerticeFuturo].ocupado = true;
             this.vezDoLobo = !this.vezDoLobo;
@@ -376,12 +376,12 @@ export class Tabuleiro {
               const indexVerticeFuturo = this.listaDeVertices.findIndex(
                   vertice => vertice.identificador === this.verticeFuturo!.identificador
                );
-               this.listaDeVertices[indexVerticeFuturo].cachorro = false;
+               this.listaDeVertices[indexVerticeFuturo].lobo = false;
                this.listaDeVertices[indexVerticeFuturo].ocupado = true;
                const indexVerticeAtual = this.listaDeVertices.findIndex(
                   vertice => vertice.identificador === this.verticeAtual!.identificador
                );
-               this.listaDeVertices[indexVerticeAtual].cachorro = true;
+               this.listaDeVertices[indexVerticeAtual].lobo = true;
                this.listaDeVertices[indexVerticeAtual].ocupado = false;
                this.vezDoLobo = !this.vezDoLobo;
             }
@@ -410,10 +410,10 @@ export class Tabuleiro {
       }
     }
 
-    verificarVitoriaCachorro(){
+    verificarVitorialobo(){
         //encontra onde a onça está posicionada no tabuleiro
         const indexVerticeOnca = this.listaDeVertices.findIndex(
-                  vertice => vertice.cachorro === false
+                  vertice => vertice.lobo === false
         );
         this.listaDeVertices[indexVerticeOnca].identificador;
         //guarda quais os movimentos que a onça pode realizar
@@ -426,7 +426,7 @@ export class Tabuleiro {
           const indexVertice = this.listaDeVertices.findIndex(
                   vertice => vertice.identificador === identificador
           );
-        //se houver um vértice vazio então é possível movimentar a onça e os cachorros não ganharam
+        //se houver um vértice vazio então é possível movimentar a onça e os lobos não ganharam
         if(this.listaDeVertices[indexVertice].ocupado==false){
           ePossivelMovimentar = true;
           return;
